@@ -1,14 +1,14 @@
-name = "Hyde"
+name = "Hyde-RTL"
 license = "MIT"
-licenselink = "https://github.com/spf13/hyde/blob/master/LICENSE.md"
+licenselink = "https://github.com/amrgharbeia/hyde/blob/master/LICENSE.md"
 description = "An elegant open source and mobile first theme"
 tags = ["blog", "company"]
 features = ["blog", "themes", "disqus"]
 min_version = 0.20
 
 [author]
-    name = "spf13"
-    homepage = "http://spf13.com"
+    name = "gharbeia"
+    homepage = "https://gharbeia.net"
 
 # If Porting existing theme
 [original]

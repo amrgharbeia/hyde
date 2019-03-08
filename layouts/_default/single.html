@@ -5,12 +5,13 @@
   <div class="content container">
     <div class="post">
       <h1>{{ .Title }}</h1>
-      <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+      <span class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">نُشر يوم {{ .Date.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Date.Month) }} {{ .Date.Year }} (آخر تحديث: {{ .Lastmod.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Lastmod.Month) }} {{ .Lastmod.Year }})</span>
+
       {{ .Content }}
     </div>
 
 			{{ if .Site.Params.disqusShortname }}
-				<h2>Comments</h2>
+				<h2>تعليقات</h2>
 				{{ partial "disqus" . }}
 			{{ end }}
 		</div>

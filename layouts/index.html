@@ -14,7 +14,9 @@
       </a>
     </h1>
 
-    <span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+      <span class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">نُشر يوم {{ .Date.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Date.Month) }} {{ .Date.Year }}</span>
+
+<!--- original date format */    <span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span> -->
 
     {{ .Content }}
   </div>
