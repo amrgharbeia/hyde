@@ -1,20 +1,12 @@
-{{ partial "head.html" . }}
-<body class="{{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}">
-  {{ partial "sidebar.html" . }}
+{{ define "main" -}}
+<div class="post">
+  <h1>{{ .Title }}</h1>
+<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}" class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}"> نُشر في {{ .Date.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Date.Month) }} {{ .Date.Year }} (آخر تعديل {{ .Lastmod.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Lastmod.Month) }} {{ .Lastmod.Year }})</time>  
+  {{ .Content }}
+</div>
 
-  <div class="content container">
-    <div class="post">
-      <h1>{{ .Title }}</h1>
-      <span class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">نُشر يوم {{ .Date.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Date.Month) }} {{ .Date.Year }} (آخر تحديث: {{ .Lastmod.Day }} {{ index $.Site.Data.months_ar (printf "%d" .Lastmod.Month) }} {{ .Lastmod.Year }})</span>
-
-      {{ .Content }}
-    </div>
-
-			{{ if .Site.Params.disqusShortname }}
-				<h2>تعليقات</h2>
-				{{ partial "disqus" . }}
-			{{ end }}
-		</div>
-
-</body>
-</html>
+{{ if .Site.DisqusShortname -}}
+<h2>{{ i18n "Comments" }}</h2>
+{{ template "_internal/disqus.html" . }}
+{{- end }}
+{{- end }}
